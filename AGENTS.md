@@ -38,8 +38,12 @@ pnpm run seed
 ```bash
 cd backend
 export $(grep -v '^#' .env | xargs)
-pnpm exec medusa user --email admin@loy.com --password admin123
+pnpm exec medusa user --email admin@loy.store --password admin123
 ```
+
+> **Note:** If the user already exists (created by seed), the login is:
+> - **Email:** `admin@loy.store`
+> - **Password:** `admin123`
 
 ## Development
 
@@ -48,10 +52,32 @@ pnpm exec medusa user --email admin@loy.com --password admin123
 ```bash
 cd backend
 export $(grep -v '^#' .env | xargs)
-pnpm dev
+sh node_modules/.bin/medusa start
 ```
 
 Backend runs at `http://localhost:9000`. Admin panel at `http://localhost:5173/app`.
+
+> **Important:** Do NOT use `pnpm exec medusa start` — it triggers lockfile verification (`pnpm install`) which hangs due to slow `@medusajs/*` registry resolution. Use `sh node_modules/.bin/medusa start` directly.
+> 
+> Server startup takes ~25s (migrations + Redis + module loading).
+
+### Testing the API
+
+```bash
+# Get admin JWT token (use python3 — jq truncates the token!)
+TOKEN=$(curl -s -X POST http://localhost:9000/auth/admin/emailpass \
+  -H "Content-Type: application/json" \
+  -d '{"email":"admin@loy.store","password":"admin123"}' \
+  | python3 -c "import sys,json; print(json.load(sys.stdin)['token'])")
+
+# Admin API
+curl -s http://localhost:9000/admin/products \
+  -H "Authorization: Bearer $TOKEN"
+
+# Store API (seeded publishable key)
+curl -s http://localhost:9000/store/products \
+  -H "x-publishable-api-key: pk_03d02ac98d54bdb7d3d7a4395acc24c32a3b94a08b687dc36400912681b99f06"
+```
 
 ### Root Frontend (DREAMDEAD)
 
@@ -77,12 +103,19 @@ Storefront will run at `http://localhost:8000`.
 
 - **Medusa CLI does not auto-load `.env`** — always `export $(grep -v '^#' .env | xargs)` before running medusa commands. The `DATABASE_URL` in `.env` **must** match the DB name in docker-compose (`loy_store`, underscore, not hyphen).
 - **No source code yet** — `backend/src/` does not exist. The scaffold has config only. Users must create modules, services, etc.
-- **Two config files exist** — `backend/medusa-config.js` (loaded by CLI) and `backend/medusa-config.ts` (TypeScript source). Keep them in sync.
+- **medusa-config.js only** — `backend/medusa-config.ts` was deleted. The JS config is the single source of truth.
 - **Storefront directory is empty** — the Next.js app has not been initialized.
 - **Root is a static app** — no framework, no build step for the storefront itself. The `build` script just copies files. All interactivity is vanilla JS.
 - **DESIGN\*.md files are reference only** — design system specifications, not runtime code.
 - **Environment variables:** Stripe keys are placeholders. Set real values in `.env` before using payments.
 - **No lint/typecheck/test scripts configured yet** in either backend or storefront package.json.
+- **JWT tokens must be extracted with python3**, not jq. jq truncates long tokens with `...`. Use: `| python3 -c "import sys,json; print(json.load(sys.stdin)['token'])"`
+- **Publishable API keys** must be linked to a sales channel to work. The seed creates one pre-linked: `pk_03d02ac98d54bdb7d3d7a4395acc24c32a3b94a08b687dc36400912681b99f06`
+- **Admin panel is disabled** — `admin: { disable: true }` in medusa-config.js. Admin panel build requires React dependencies not yet installed.
+- **Source patches applied** to fix Medusa v2.15.5 bugs — see `backend/PATCHES.md`:
+  1. CORS origins must be strings, not arrays (medusa-config.js)
+  2. JWT `actor_id` fallback: `app_metadata.user_id` when `app_metadata.admin_id` is missing
+  3. Admin auth middleware expects `actor_type: "admin"` not `"user"`
 
 ## Notes
 
