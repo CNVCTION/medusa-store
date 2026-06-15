@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@medusajs/draft-order": "2.15.5",
+    "@medusajs/framework": "2.15.5",
+    "@medusajs/medusa": "2.15.5",
+    "ioredis": "^5",
+    "pg": "^8"
+  },
+  "devDependencies": {
+    "@medusajs/medusa-cli": "2.0.0-rc-20241016093905",
+    "@types/node": "^22",
+    "typescript": "^5.8"
+  },
+  "name": "loy-medusa-backend",
+  "private": true,
+  "scripts": {
+    "build": "medusa build",
+    "dev": "medusa develop",
+    "migration:generate": "medusa db:generate",
+    "migration:revert": "medusa db:revert",
+    "migration:run": "medusa db:migrate",
+    "seed": "medusa seed",
+    "start": "medusa start"
+  },
+  "version": "1.0.0"
+}

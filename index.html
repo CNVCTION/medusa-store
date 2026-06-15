@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DREAMDEAD — Dark Editorial Fashion</title>
+  <meta name="description" content="An editorial clothing label. Staged in shadow, captured in silence — Medusa-powered commerce." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- Announcement -->
+  <div class="announcement">Complimentary shipping over $200 &nbsp;·&nbsp; 30-day returns &nbsp;·&nbsp; Medusa-powered</div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="nav-left">
+      <a href="#" class="wordmark">dreamdead</a>
+    </div>
+    <div class="nav-center">
+      <a href="#collection" class="nav-link is-active">Collection</a>
+      <a href="#lookbook" class="nav-link">Lookbook</a>
+      <a href="#studio" class="nav-link">Studio</a>
+      <a href="#journal" class="nav-link">Journal</a>
+    </div>
+    <div class="nav-right">
+      <label class="sr-only" for="search-input">Search</label>
+      <input id="search-input" class="input-search" type="search" placeholder="Search…" style="width:150px" />
+      <button id="cart-button" class="btn-nav-ghost" aria-label="Open cart">
+        Bag <span class="nav-badge" id="cart-count">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Band -->
+  <section class="hero" id="home">
+    <div class="hero-mesh"></div>
+    <div class="hero-content container">
+      <p class="text-caption-mono anim-reveal">// Autumn / Winter 2026</p>
+      <h1 class="text-display-xl anim-reveal anim-delay-1">Build your wardrobe in the dark.</h1>
+      <p class="text-body-lg anim-reveal anim-delay-2">
+        An editorial clothing label for the dark season. Precision tailoring, shadow-dyed fabrics,
+        and a cinematic sensibility that rejects the ordinary.
+      </p>
+      <div class="hero-actions anim-reveal anim-delay-3">
+        <a href="#collection" class="btn-primary">Explore the collection</a>
+        <button class="btn-secondary" data-open-drawer="quickview" data-product="obsidian-trench">View signature piece</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Showcase Band (dark) -->
+  <section class="section" id="collection">
+    <div class="container">
+      <div class="section-head section-head--row">
+        <div>
+          <p class="text-caption-mono">// Merchandise</p>
+          <h2 class="text-display-lg">The dark season drop.</h2>
+        </div>
+        <span class="section-count" id="product-count"></span>
+      </div>
+      <div class="chip-row" id="chip-row"></div>
+      <div class="product-grid" id="product-grid"></div>
+    </div>
+  </section>
+
+  <!-- Cinematic Interlude (dark band) -->
+  <section class="section" id="lookbook">
+    <div class="container">
+      <div class="card card--xl" style="
+        background:
+          radial-gradient(ellipse 60% 50% at 30% 40%,rgba(121,40,202,.06),transparent),
+          radial-gradient(ellipse 50% 40% at 70% 60%,rgba(0,124,240,.04),transparent),
+          var(--canvas-soft);
+      ">
+        <p class="text-caption-mono">// Lookbook</p>
+        <h2 class="text-display-lg" style="max-width:18ch;margin-bottom:var(--sp-md)">
+          Staged in shadow. Captured in silence.
+        </h2>
+        <p class="text-body-lg" style="color:var(--body);max-width:44ch;margin-bottom:var(--sp-xl)">
+          Each piece photographed against the void. The absence of context
+          forces attention onto the garment itself — cut, drape, texture.
+        </p>
+        <button class="btn-primary">View the editorial</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid (dark) -->
+  <section class="section" id="studio">
+    <div class="container">
+      <div class="section-head">
+        <p class="text-caption-mono">// Studio</p>
+        <h2 class="text-display-lg">Built for a label with conviction.</h2>
+        <p class="text-body-lg">Every detail in the DREAMDEAD system — from fabric sourcing to the online commerce layer — is chosen to reinforce a single, unyielding point of view.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <p class="text-caption-mono">01</p>
+          <h3 class="text-display-sm">Hero-first merchandising</h3>
+          <p>Cinematic photography and editorial typography lead the experience. Products are presented as objects of intent, not inventory rows.</p>
+        </article>
+        <article class="feature-card">
+          <p class="text-caption-mono">02</p>
+          <h3 class="text-display-sm">Frictionless commerce</h3>
+          <p>Quick-add, drawer cart, quantity controls, and a visible subtotal keep checkout at arm's reach without interrupting the editorial flow.</p>
+        </article>
+        <article class="feature-card">
+          <p class="text-caption-mono">03</p>
+          <h3 class="text-display-sm">Composable backend</h3>
+          <p>Medusa v2 powers the commerce layer. Products, inventory, and checkout are ready to scale when the storefront goes live.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Polarity-Flipped Band (light) -->
+  <section class="section section--light" id="craft">
+    <div class="container">
+      <div class="section-head">
+        <p class="text-caption-mono">// Craft</p>
+        <h2 class="text-display-lg">A compute model for all garments.</h2>
+        <p class="text-body-lg">Every piece is pattern-cut, shadow-dyed, and finished by hand. The supply chain is as deliberate as the design.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card card" style="background:#f5f5f5;border-color:#e5e5e5;box-shadow:none">
+          <p class="text-caption-mono" style="color:#888">Materials</p>
+          <h3 class="text-display-sm" style="color:#000">Japanese coated cotton, brushed wool-cashmere, sandwashed silk charmeuse.</h3>
+          <p style="color:#555">Every fabric is sourced for drape, hand-feel, and durability — never for cost.</p>
+        </article>
+        <article class="feature-card card" style="background:#f5f5f5;border-color:#e5e5e5;box-shadow:none">
+          <p class="text-caption-mono" style="color:#888">Fit</p>
+          <h3 class="text-display-sm" style="color:#000">Silhouettes engineered from the shoulder down. Oversized, tailored, draped.</h3>
+          <p style="color:#555">Each cut is calibrated to the fabric — the drape informs the shape.</p>
+        </article>
+        <article class="feature-card card" style="background:#f5f5f5;border-color:#e5e5e5;box-shadow:none">
+          <p class="text-caption-mono" style="color:#888">Construction</p>
+          <h3 class="text-display-sm" style="color:#000">Blind seams, structured shoulders, integrated pockets. Function disappears into form.</h3>
+          <p style="color:#555">The details are invisible until you wear the piece. That is the point.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journal Section (dark) -->
+  <section class="section" id="journal">
+    <div class="container">
+      <div class="section-head">
+        <p class="text-caption-mono">// Journal</p>
+        <h2 class="text-display-lg">Notes on the dark season.</h2>
+      </div>
+      <div class="story-grid">
+        <article class="editorial-card">
+          <div>
+            <p class="text-caption-mono">Story 01</p>
+            <h3 class="text-display-sm">Designed to convert, not clutter.</h3>
+            <p>The layout keeps hero, featured products, and trust signals in the right order for a brand-led commerce experience that reads like a magazine, not a marketplace.</p>
+          </div>
+          <a href="#" class="btn-ghost">Read more &rarr;</a>
+        </article>
+        <article class="editorial-card">
+          <div>
+            <p class="text-caption-mono">Story 02</p>
+            <h3 class="text-display-sm">Catalogues with real retail structure.</h3>
+            <p>Filters, search, product details, and cart behaviour are already in place — wired to a Medusa v2 backend for a live API integration.</p>
+          </div>
+          <a href="#" class="btn-ghost">Read more &rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA Strip -->
+  <section class="section" id="subscribe">
+    <div class="container">
+      <div class="cta-strip">
+        <div>
+          <p class="text-caption-mono">// Newsletter</p>
+          <h2 class="text-display-lg">First access to the void.</h2>
+          <p class="text-body">Drop announcements, studio notes, and restock alerts. No noise.</p>
+        </div>
+        <form class="cta-form" onsubmit="event.preventDefault()">
+          <input class="cta-input" type="email" placeholder="you@email.com" aria-label="Email address" />
+          <button class="btn-primary" type="submit">Join list</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="wordmark">dreamdead</p>
+        <p>An editorial clothing label operating at the intersection of darkness and precision.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collection</h4>
+        <a href="#">Outerwear</a>
+        <a href="#">Knitwear</a>
+        <a href="#">Tailored</a>
+        <a href="#">Accessories</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Journal</a>
+        <a href="#">Stockists</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Shipping &amp; Returns</a>
+        <a href="#">Size Guide</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DREAMDEAD. All rights reserved.</span>
+      <span>Powered by Medusa</span>
+    </div>
+  </footer>
+
+  <!-- Backdrop -->
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+  <!-- Quickview Drawer -->
+  <aside class="drawer" id="quickview-drawer" aria-hidden="true">
+    <button class="drawer-close" data-close-drawer aria-label="Close quick view">&times;</button>
+    <div class="quickview-content" id="quickview-content"></div>
+  </aside>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="cart-drawer" aria-hidden="true">
+    <button class="drawer-close" data-close-drawer aria-label="Close cart">&times;</button>
+    <div class="drawer-head">
+      <p class="text-caption-mono">Shopping bag</p>
+      <h2 class="text-display-sm">Your cart</h2>
+    </div>
+    <div class="drawer-body">
+      <div class="cart-items" id="cart-items"></div>
+      <div class="drawer-footer">
+        <div class="summary-row"><span>Subtotal</span><span class="summary-total" id="cart-subtotal">$0</span></div>
+        <div class="summary-row"><span>Shipping</span><span>Calculated at checkout</span></div>
+        <button class="btn-primary btn-full" style="margin-top:var(--sp-md)">Checkout with Medusa</button>
+      </div>
+    </div>
+  </aside>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

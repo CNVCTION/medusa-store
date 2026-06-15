@@ -1,0 +1,10 @@
+{
+  "name": "loy-medusa-store",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 -d .",
+    "build": "node scripts/build.mjs",
+    "preview": "python3 -m http.server 4173 -d dist"
+  }
+}

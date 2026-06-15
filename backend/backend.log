@@ -1,0 +1,2 @@
+$ medusa develop
+[32minfo[39m:    redisUrl not found. A fake redis instance will be used.
